@@ -12,13 +12,14 @@ public class Application {
 
         System.out.println("숫자 야구 게임을 시작합니다.");
         Computer.setRandomNumList(randomNumList);
-        System.out.println("랜덤 숫자 확인 " + randomNumList);
+//        System.out.println("랜덤 숫자 확인 " + randomNumList);
         while(status == 1) {
             try {
                 player.getNums();
             } catch (IllegalArgumentException e) {
                 System.out.println("입력값이 올바르지 않습니다.");
-                break;
+                throw new IllegalArgumentException();
+//                break;
             }
             if (!player.correctCheck(randomNumList))
                 continue;
@@ -26,10 +27,15 @@ public class Application {
                 status = player.finishGame();
             } catch (IllegalArgumentException e) {
                 System.out.println("입력값이 올바르지 않습니다.");
-                break;
+                throw new IllegalArgumentException();
+//                break;
             }
-            Computer.setRandomNumList(randomNumList);
-            System.out.println("랜덤 숫자 확인 " + randomNumList);
+            if (status == 1) {
+                Computer.setRandomNumList(randomNumList);
+//                System.out.println("랜덤 숫자 확인 " + randomNumList);
+                System.out.println("숫자 야구 게임을 시작합니다.");
+            }
+
         }
     }
 }
