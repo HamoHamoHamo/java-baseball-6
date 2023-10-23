@@ -16,17 +16,22 @@ public class Player {
         System.out.print("서로 다른 3자리의 수를 입력해주세요 : ");
         playerNums = Console.readLine();
 
-        if (playerNums.length() != LENGTH)
+        if (playerNums.length() != LENGTH) {
+            System.out.println("입력값이 올바르지 않습니다.");
             throw new IllegalArgumentException();
+        }
+
         try {
             Integer.parseInt(playerNums);
         } catch (IllegalArgumentException e) {
+            System.out.println("입력값이 올바르지 않습니다.");
             throw new IllegalArgumentException();
         }
         for (int i = 0; i < LENGTH; i++) {
             playerNumList.add(playerNums.charAt(i) - '0');
         }
         if(playerNumList.size() != playerNumList.stream().distinct().count()){
+            System.out.println("입력값이 올바르지 않습니다.");
             throw new IllegalArgumentException();
         }
     }
