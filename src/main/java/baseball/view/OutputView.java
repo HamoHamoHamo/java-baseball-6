@@ -11,10 +11,17 @@ public class OutputView {
     }
 
     public static void printInputGameNumberMessage() {
-        System.out.println(INPUT_GAME_NUMBER.getMessage());
+        System.out.print(INPUT_GAME_NUMBER.getMessage());
     }
 
     public static void printRestartMessage() {
         System.out.println(GAME_END.getMessage());
+    }
+
+    public static void printMessage(String message) {
+        System.out.print(message);
+    }
+    public static void printNewLine() {
+        System.out.println();
     }
 }

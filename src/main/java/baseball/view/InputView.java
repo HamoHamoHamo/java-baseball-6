@@ -1,5 +1,7 @@
 package baseball.view;
 
+import static baseball.constants.GameSetting.FINISH;
+import static baseball.constants.GameSetting.RESTART;
 import static baseball.constants.OutputMessage.INPUT_GAME_NUMBER;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -24,7 +26,7 @@ public class InputView {
     }
 
     private static void validateInputRestart(String input) {
-        if (!(input.equals("1") || input.equals("2"))) {
+        if (!(input.equals(RESTART.getValue()) || input.equals(FINISH.getValue()))) {
             throw new IllegalArgumentException();
         }
     }
